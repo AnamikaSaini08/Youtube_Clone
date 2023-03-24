@@ -6,7 +6,7 @@ import {useSelector} from 'react-redux';
 const Body = () => {
   const isMenuOpen = useSelector((store)=>store.app.isMenuOpen)
   return (
-    <div className=''>
+    <div className='flex'>
     {isMenuOpen && <SideBar/> } 
     <MainContainer/>
     </div>
