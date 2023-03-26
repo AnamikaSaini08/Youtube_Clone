@@ -3,7 +3,7 @@ import Button from './Button'
 
 const ButtonList = () => {
   return (
-    <div>
+    <div className='ml-10'>
       <Button/>
     </div>
   )

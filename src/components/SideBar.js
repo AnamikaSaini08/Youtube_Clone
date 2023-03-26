@@ -1,11 +1,12 @@
 import React from 'react'
+import {Link} from 'react-router-dom';
 
 const SideBar = () => {
   return (
-    <div className='shadow-lg w-52 ml-5 text-lg bg-black text-white'>
+    <div className='drop-shadow-2xl ml-5 text-lg h-fit bg-slate-50'>
       <div>
       <ul className='p-5 leading-10'>
-        <li>Home</li>
+        <Link><li>Home</li></Link>
         <li>Shorts</li>
         <li>Subscriptions</li>
       </ul>
@@ -13,7 +14,7 @@ const SideBar = () => {
       <hr/>
       <div>
         <ul className='p-5 leading-10'>
-          <li>Library</li>
+          <Link><li>Library</li></Link>
           <li>History</li>
           <li>Your Videos</li>
           <li>Watch Later</li>
