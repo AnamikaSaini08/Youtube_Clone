@@ -7,7 +7,7 @@ const VideoCard = ({videoInfo}) => {
   const {likeCount,viewCount,commentCount} = statistics;
   const dateOnly = publishedAt.slice(0, 10);
   return (
-    <div className='drop-shadow-lg w-80 h-80 bg-slate-50 p-5 m-5 ml-10 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-gray-200 duration-300 '>
+    <div className='drop-shadow-lg w-80 h-80 bg-slate-50 p-5 m-5 ml-10'>
      <div>
       <img src={thumbnails?.medium?.url} alt='thumbnail' className='rounded-lg'/>
      </div>

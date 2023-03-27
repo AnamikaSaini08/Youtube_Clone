@@ -8,13 +8,10 @@ import {openMenu} from '../utils/appSlice';
 
 const VideoContainer = () => {
   const [videos , setVideos] = useState(null);
-  const [filterVideo , setFilterVideo] = useState(null);
   const getVideos = async()=>{
     const data = await fetch(YOUTUBE_API_KEY);
     const json = await data.json();
     setVideos(json?.items);
-    setFilterVideo(json?.items);
-    console.log("Api call---",json);
   }
 
   const dispatch = useDispatch();
@@ -25,7 +22,7 @@ const VideoContainer = () => {
   return !videos? <Shimmer/> : (
     <div className='flex flex-wrap'>
       {videos.map( (video)=>{
-        return <Link to={"/watch?v="+video?.id}><VideoCard videoInfo = {video} key={video?.id}/></Link>
+        return <Link to={"/watch?v="+video?.id} key={video?.id}><VideoCard videoInfo = {video} /></Link>
       })}
     </div>
   )
