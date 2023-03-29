@@ -71,7 +71,7 @@ const commentData = [
 ]
 const CommentContainer = () => {
   return (
-    <div>
+    <div className='w-[900px]'>
       <h1 className='text-bold'>Comments</h1>
       <CommentList comments={commentData}/>
     </div>

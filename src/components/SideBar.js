@@ -6,19 +6,19 @@ const SideBar = () => {
     <div className='drop-shadow-2xl ml-5 text-lg h-fit bg-slate-50'>
       <div>
       <ul className='p-5 leading-10'>
-        <Link><li>Home</li></Link>
-        <li>Shorts</li>
-        <li>Subscriptions</li>
+        <Link to='/'><li>Home</li></Link>
+        <Link to='/history'><li>History</li></Link>
+        <Link><li>Subscriptions</li></Link>
       </ul>
       </div>
       <hr/>
       <div>
         <ul className='p-5 leading-10'>
           <Link><li>Library</li></Link>
-          <li>History</li>
-          <li>Your Videos</li>
-          <li>Watch Later</li>
-          <li>Liked Videos</li> 
+          <Link><li>Shorts</li></Link>
+          <Link><li>Your Videos</li></Link>
+          <Link><li>Watch Later</li></Link>
+          <Link><li>Liked Videos</li> </Link>
         </ul>
       </div>
       <hr/>

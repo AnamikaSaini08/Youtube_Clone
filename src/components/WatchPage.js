@@ -2,14 +2,12 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux';
 import {closeMenu} from '../utils/appSlice';
 import { useSearchParams } from 'react-router-dom';
-import {SUGGESTED_VIDEOS , GOOGLE_API_KEY} from '../utils/constant';
-import SuggestionVideos from './SuggestionVideos';
 import CommentContainer from './CommentContainer';
 import LiveMessage from './LiveMessage';
+import SuggestedVideos from './SuggestedVideos'
 
 const WatchPage = () => {
     const [searchParams] = useSearchParams();
-    const [suggestedVideos , setSuggestedVideos] = useState([]);
     const dispatch = useDispatch();
 
     useEffect( ()=>{
@@ -31,8 +29,11 @@ const WatchPage = () => {
         </div>
           <LiveMessage/>
       </div>
-      <div>
+      <div className='flex'>
         <CommentContainer/>
+        <div>
+          <SuggestedVideos videoId={searchParams.get("v")}/>
+        </div>
       </div>
     </div>
   )

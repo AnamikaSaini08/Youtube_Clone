@@ -5,6 +5,7 @@ import Shimmer from './Shimmer';
 import {Link} from 'react-router-dom'
 import { useDispatch } from 'react-redux';
 import {openMenu} from '../utils/appSlice';
+import { addHistory } from '../utils/historySlice';
 
 const VideoContainer = () => {
   const [videos , setVideos] = useState(null);
@@ -19,10 +20,21 @@ const VideoContainer = () => {
     getVideos();
     dispatch(openMenu());
   } , []);
+
+  const addingToHistory =(video)=>{
+    dispatch(addHistory(video))
+  }
   return !videos? <Shimmer/> : (
     <div className='flex flex-wrap'>
       {videos.map( (video)=>{
-        return <Link to={"/watch?v="+video?.id} key={video?.id}><VideoCard videoInfo = {video} /></Link>
+        return <Link to={"/watch?v="+video?.id} 
+              key={video?.id}
+              onClick = {()=>{
+                addingToHistory(video)
+              }}
+              >
+              <VideoCard videoInfo = {video} />
+        </Link>
       })}
     </div>
   )

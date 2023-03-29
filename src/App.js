@@ -7,6 +7,7 @@ import { Provider } from 'react-redux';
 import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 import MainContainer from './components/MainContainer';
 import WatchPage from './components/WatchPage';
+import History from './components/History';
 
 const appRouter = createBrowserRouter([
     {
@@ -21,7 +22,11 @@ const appRouter = createBrowserRouter([
                 path: 'watch',
                 element: <WatchPage/>
             }
-        ]
+        ],
+    },
+    {
+        path: '/history',
+        element: <History/>
     }
 ])
 const App = ()=>(
