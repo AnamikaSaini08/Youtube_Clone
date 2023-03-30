@@ -9,6 +9,7 @@ import MainContainer from './components/MainContainer';
 import WatchPage from './components/WatchPage';
 import History from './components/History';
 import SearchResults from './components/SearchResults';
+import Profile from './components/Profile';
 
 const appRouter = createBrowserRouter([
     {
@@ -35,6 +36,10 @@ const appRouter = createBrowserRouter([
             {
                 path: 'results',
                 element: <SearchResults/>
+            },
+            {
+                path: 'profile',
+                element: <Profile/>
             }
             
         ],

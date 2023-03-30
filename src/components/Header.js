@@ -95,10 +95,12 @@ const Header=()=>{
                 </div>)}
             </div>
             <div>
-                <img className="h-8"
-                 src='https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png' 
-                 alt='user_logo'
-                 />
+                <Link to='/profile'>
+                    <img className="h-8"
+                    src='https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png' 
+                    alt='user_logo'
+                    />
+                </Link>
             </div>
         </div>
     )
