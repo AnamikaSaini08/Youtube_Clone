@@ -5,16 +5,25 @@ import { useSearchParams } from 'react-router-dom';
 import CommentContainer from './CommentContainer';
 import LiveMessage from './LiveMessage';
 import SuggestedVideos from './SuggestedVideos'
+import { getVideoById } from '../utils/helper';
+import WatchVideoDescription from './WatchVideoDescription';
 
 const WatchPage = () => {
     const [searchParams] = useSearchParams();
+    const [videoDetails , setVideoDetails] = useState(null);
     const dispatch = useDispatch();
+    const videoId = searchParams.get("v");
 
     useEffect( ()=>{
+        const fetchVideoById = async()=>{
+          const video = await getVideoById(videoId);
+          setVideoDetails(video);
+        }
+        fetchVideoById();
         dispatch(closeMenu());
-    },[]);
+    },[videoId]);
 
-  return (
+  return videoDetails && (
     <div className='px-5 w-full'>
       <div className='py-5 flex'>
         <div>
@@ -29,6 +38,7 @@ const WatchPage = () => {
         </div>
           <LiveMessage/>
       </div>
+      <div><WatchVideoDescription videoInfo={videoDetails}/></div>
       <div className='flex'>
         <CommentContainer/>
         <div>
