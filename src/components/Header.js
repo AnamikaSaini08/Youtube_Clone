@@ -8,8 +8,10 @@ const Header=()=>{
     const [searchText,setSearchText] = useState("");
     const [suggestions , setSuggestions] = useState([]);
     const [showSuggestions , setShowSuggestions] = useState(false);
+    const [hoverOnSuggestion , setHoverOnSuggestion] = useState(false);
     const dispatch = useDispatch();
     const toggleMenuHandler = ()=>{
+        console.log("Click");
         dispatch(toggleMenu());
     }
     const cacheSuggestion = useSelector(store=>store?.suggestion);
@@ -57,15 +59,26 @@ const Header=()=>{
                     placeholder=" Search..." 
                     className="pl-5 w-96 py-1 border border-gray-400 rounded-l-full"
                     onFocus={()=>setShowSuggestions(true)}
-                    onBlur={()=>setShowSuggestions(false)}
+                    onBlur={()=>{!hoverOnSuggestion && setShowSuggestions(false)}}
                     />
         
-                    <button className="border border-gray-400 rounded-r-full py-1 px-1.5 bg-gray-100">Search</button>
+                    <button className="border border-gray-400 rounded-r-full py-1 px-1.5 bg-gray-100" 
+                    >
+                        Search
+                    </button>
                 </div>
                 {showSuggestions && (<div className='z-10 bg-white fixed w-[24rem] px-5 py-2 shadow-xl rounded-lg border border-gray-100'>
                     <ul>
                         {suggestions.map( (suggestion)=>{
-                            return <li className='flex hover:bg-gray-100 p-1 m-2' >
+                            return <li className='flex hover:bg-gray-100 p-1 m-2'
+                                    onClick={()=>{
+                                        setSearchText(suggestion);
+                                        setShowSuggestions(false);
+                                        }   
+                                    } 
+                                    onMouseOver={() => setHoverOnSuggestion(true)}
+                                    onMouseOut={() => setHoverOnSuggestion(false)}
+                                >
                                 <img alt='search'
                                 className='w-4 h-4 mt-1 mr-5'
                                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwabflkg_k3E9DSIlwWTB1B4rmlinJLEasveVvrUQbXg&s"

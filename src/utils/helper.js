@@ -1,3 +1,5 @@
+import { GOOGLE_API_KEY, YOUTUBE_SEARCH_API } from "./constant";
+
 var nameList = [
     'Time', 'Past', 'Future', 'Dev',
     'Fly', 'Flying', 'Soar', 'Soaring', 'Power', 'Falling',
@@ -36,4 +38,11 @@ export function generateRandomMessage(length) {
       counter += 1;
     }
     return result;
+}
+
+export const getSearchVideos = async(text)=>{
+  const data = await fetch(YOUTUBE_SEARCH_API +text+"&key="+GOOGLE_API_KEY);
+  const json = await data.json();
+  console.log(json?.items);
+  return json?.items;
 }
