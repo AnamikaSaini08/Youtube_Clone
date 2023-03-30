@@ -4,6 +4,7 @@ import {toggleMenu} from '../utils/appSlice';
 import { isButtonClick } from '../utils/buttonClickSlice';
 import {YOUTUBE_SUGGESTION_API} from '../utils/constant';
 import { cacheResult } from '../utils/suggestionSlice';
+import { Link } from 'react-router-dom';
 
 const Header=()=>{
     const [searchText,setSearchText] = useState("");
@@ -62,15 +63,18 @@ const Header=()=>{
                     onBlur={()=>{!hoverOnSuggestion && setShowSuggestions(false)}}
                     />
         
-                    <button className="border border-gray-400 rounded-r-full py-1 px-1.5 bg-gray-100" 
-                    >
-                        Search
-                    </button>
+                    <Link to={'/results?search_query='+searchText}>
+                        <button className="border border-gray-400 rounded-r-full py-1 px-1.5 bg-gray-100" 
+                        >
+                            Search
+                        </button>
+                    </Link>
                 </div>
                 {showSuggestions && (<div className='z-10 bg-white fixed w-[24rem] px-5 py-2 shadow-xl rounded-lg border border-gray-100'>
                     <ul>
                         {suggestions.map( (suggestion)=>{
-                            return <li className='flex hover:bg-gray-100 p-1 m-2'
+                            return <Link to={'/results?search_query='+searchText}>
+                                    <li className='flex hover:bg-gray-100 p-1 m-2'
                                     onClick={()=>{
                                         setSearchText(suggestion);
                                         setShowSuggestions(false);
@@ -85,7 +89,7 @@ const Header=()=>{
                                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwabflkg_k3E9DSIlwWTB1B4rmlinJLEasveVvrUQbXg&s"
                                 />
                             {suggestion}
-                            </li>
+                            </li></Link>
                         })}
                     </ul>
                 </div>)}
