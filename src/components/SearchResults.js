@@ -1,38 +1,39 @@
 import React, { useEffect, useState } from 'react';
-import { openMenu } from '../utils/appSlice';
 import { getSearchVideos } from '../utils/helper';
-import SideBar from './SideBar';
 import SearchVideoCard from './SearchVideoCard';
 import Shimmer from './Shimmer';
-import { useDispatch,useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import ButtonList from './ButtonList';
 
 const SearchResults = () => {
     const [searchVideos , setSearchVideos] = useState([]);
-    const isMenuOpen = useSelector((store)=>store.app.isMenuOpen); 
-    const dispatch = useDispatch();
+    const [searchParam] = useSearchParams();
+    const searchText = searchParam.get("search_query");
+    const buttonCLickSearch = useSelector( store=>store.buttonClick.buttonClick);
 
     useEffect( ()=>{
         const fetchSearchVideos = async () => {
-            const videos = await getSearchVideos("car");
+            const videos = await getSearchVideos(searchText);
             setSearchVideos(videos);
           };
           fetchSearchVideos();
-          dispatch(openMenu());
-    },[]);
+    },[searchText]);
 
   return searchVideos.length===0 ? <Shimmer/> : (
-    <div className='flex'>
+    <div>
       <div>
-        {isMenuOpen && <SideBar/> } 
+        {buttonCLickSearch && <ButtonList/>}
       </div>
-      <div>
-        {searchVideos.map( (video)=>{
-            return <Link to={"/watch?v="+video?.id?.videoId} key={video?.id?.videoId}><SearchVideoCard videoInfo={video}/></Link>
-        })}
+      <div className='flex'>
+        <div>
+          {searchVideos.map( (video)=>{
+              return <Link to={"/watch?v="+video?.id?.videoId} key={video?.id?.videoId}><SearchVideoCard videoInfo={video}/></Link>
+          })}
+        </div>
       </div>
     </div>
   )
 }
 
-export default SearchResults
+export default SearchResults;

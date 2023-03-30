@@ -6,6 +6,7 @@ import {Link} from 'react-router-dom'
 import { useDispatch } from 'react-redux';
 import {openMenu} from '../utils/appSlice';
 import { addHistory } from '../utils/historySlice';
+import { isButtonClick } from '../utils/buttonClickSlice';
 
 const VideoContainer = () => {
   const [videos , setVideos] = useState(null);
@@ -30,7 +31,8 @@ const VideoContainer = () => {
         return <Link to={"/watch?v="+video?.id} 
               key={video?.id}
               onClick = {()=>{
-                addingToHistory(video)
+                addingToHistory(video);
+                dispatch(isButtonClick(false))
               }}
               >
               <VideoCard videoInfo = {video} />

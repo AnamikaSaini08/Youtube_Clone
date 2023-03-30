@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {toggleMenu} from '../utils/appSlice';
+import { isButtonClick } from '../utils/buttonClickSlice';
 import {YOUTUBE_SUGGESTION_API} from '../utils/constant';
 import { cacheResult } from '../utils/suggestionSlice';
 
@@ -11,7 +12,6 @@ const Header=()=>{
     const [hoverOnSuggestion , setHoverOnSuggestion] = useState(false);
     const dispatch = useDispatch();
     const toggleMenuHandler = ()=>{
-        console.log("Click");
         dispatch(toggleMenu());
     }
     const cacheSuggestion = useSelector(store=>store?.suggestion);
@@ -74,6 +74,7 @@ const Header=()=>{
                                     onClick={()=>{
                                         setSearchText(suggestion);
                                         setShowSuggestions(false);
+                                        dispatch(isButtonClick(false));
                                         }   
                                     } 
                                     onMouseOver={() => setHoverOnSuggestion(true)}

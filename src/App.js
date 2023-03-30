@@ -13,7 +13,12 @@ import SearchResults from './components/SearchResults';
 const appRouter = createBrowserRouter([
     {
         path: '/',
-        element: <Body/>,
+        element: (
+            <>
+                <Header/>
+                <Body/>
+            </>
+        ),
         children: [
             {
                 path: '/',
@@ -22,23 +27,23 @@ const appRouter = createBrowserRouter([
             {
                 path: 'watch',
                 element: <WatchPage/>
+            },
+            {
+                path: 'history',
+                element: <History/>
+            },
+            {
+                path: 'results',
+                element: <SearchResults/>
             }
+            
         ],
     },
-    {
-        path: '/history',
-        element: <History/>
-    },
-    {
-        path: '/results',
-        element: <SearchResults/>
-    }
 ])
 const App = ()=>(
 
     <Provider store={store}>
         <div>
-            <Header/>
             <RouterProvider router={appRouter}/>
         </div>
     </Provider>
