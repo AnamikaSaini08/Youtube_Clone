@@ -24,9 +24,9 @@ const ShowMoreDetails = ({title,description,viewCount,tags,publishedAt})=>{
 }
 
 const WatchVideoDescription = ({videoInfo}) => {
-    const [{statistics,snippet}] = videoInfo;
-    const {title,thumbnails,channelTitle, tags,description,publishedAt} = snippet;
-    const {viewCount,commentCount} = statistics;
+    const [{statistics,snippet} = {}] = videoInfo || [];
+    const {title,thumbnails,channelTitle, tags,description,publishedAt} = snippet || {};
+    const {viewCount,commentCount} = statistics || {};
     const [showMore , setShowMore] = useState(false);
   return (
     <div className='w-[900px]'>

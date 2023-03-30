@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 import ButtonList from './ButtonList';
 
 const SearchResults = () => {
-    const [searchVideos , setSearchVideos] = useState([]);
+    const [searchVideos , setSearchVideos] = useState(null);
     const [searchParam] = useSearchParams();
     const searchText = searchParam.get("search_query");
     const buttonCLickSearch = useSelector( store=>store.buttonClick.buttonClick);
@@ -20,7 +20,7 @@ const SearchResults = () => {
           fetchSearchVideos();
     },[searchText]);
 
-  return searchVideos.length===0 ? <Shimmer/> : (
+  return !searchVideos ? <Shimmer/> : (
     <div>
       <div>
         {buttonCLickSearch && <ButtonList/>}
