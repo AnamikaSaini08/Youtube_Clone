@@ -4,6 +4,7 @@ import suggestionSlice from './suggestionSlice';
 import chatSlice from './chatSlice';
 import historySlice from './historySlice';
 import buttonClickSlice from './buttonClickSlice';
+import subscribeSlice from './subscribeSlice';
 
 const store = configureStore({
     reducer:{
@@ -11,7 +12,8 @@ const store = configureStore({
         suggestion: suggestionSlice,
         chat : chatSlice,
         history: historySlice,
-        buttonClick : buttonClickSlice
+        buttonClick : buttonClickSlice,
+        subscribe : subscribeSlice
     }
 });
 export default store;

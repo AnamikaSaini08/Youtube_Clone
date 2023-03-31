@@ -10,6 +10,7 @@ import WatchPage from './components/WatchPage';
 import History from './components/History';
 import SearchResults from './components/SearchResults';
 import Profile from './components/Profile';
+import Subscribe from './components/Subscribe';
 
 const appRouter = createBrowserRouter([
     {
@@ -40,6 +41,10 @@ const appRouter = createBrowserRouter([
             {
                 path: 'profile',
                 element: <Profile/>
+            },
+            {
+                path: 'subscriptions',
+                element: <Subscribe/>
             }
             
         ],
@@ -48,7 +53,7 @@ const appRouter = createBrowserRouter([
 const App = ()=>(
 
     <Provider store={store}>
-        <div>
+        <div className='overflow-visible'>
             <RouterProvider router={appRouter}/>
         </div>
     </Provider>

@@ -9,7 +9,7 @@ const SideBar = () => {
       <ul className='p-5 leading-10'>
         <Link to='/'><li>Home</li></Link>
         <Link to='/history'><li>History</li></Link>
-        <Link><li>Subscriptions</li></Link>
+        <Link to='/subscriptions'><li>Subscriptions</li></Link>
       </ul>
       </div>
       <hr/>

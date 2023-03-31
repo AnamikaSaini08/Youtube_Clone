@@ -1,33 +1,29 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { clickToSubscribe } from '../utils/subscribeSlice';
+import ShowMoreDetailsOfVideo from './SomeMoreDetailsOfVideo';
 
-const ShowMoreDetails = ({title,description,viewCount,tags,publishedAt})=>{
-  return(
-  <div className='bg-slate-600 text-white mt-2 py-4 px-3 rounded-lg'>
-    <div className='text-bold flex'>
-    <h1 className='mr-2'>{viewCount} views</h1>
-    <h1>{publishedAt.slice(0,10)}</h1>
-    </div>
-    <div className='mb-8'>
-    {title}
-    </div>
-    <hr/>
-    <p className='my-4'>{description}</p>
-    <hr/>
-    <div className='mt-4'>
-    {tags.map( (tag ,i)=>{
-      return <span key={i} className='text-blue-400'>#{tag}</span>
-    })}
-    </div>
-  </div>
-  )
-  
+function isSubscribe(subscribeArray,channelId){
+  const result = subscribeArray?.find(item=>item.hasOwnProperty(channelId));
+  return result ? 'Unsubscribe' : 'Subscribe';
 }
 
 const WatchVideoDescription = ({videoInfo}) => {
     const [{statistics,snippet} = {}] = videoInfo || [];
-    const {title,thumbnails,channelTitle, tags,description,publishedAt} = snippet || {};
+    const {title,thumbnails,channelTitle, tags,description,publishedAt,channelId} = snippet || {};
     const {viewCount,commentCount} = statistics || {};
     const [showMore , setShowMore] = useState(false);
+    const subscribeArray = useSelector(store=>store.subscribe.subscribe);
+    const [isChannelSubscribe , setIsChannelSubscribe] = useState(isSubscribe(subscribeArray,channelId));
+    const dispatch = useDispatch();
+
+    const subscribeHandle = ()=>{
+      dispatch(clickToSubscribe({[channelId] : videoInfo}));
+    }
+    useEffect( ()=>{
+      setIsChannelSubscribe(isSubscribe(subscribeArray , channelId));
+    },  [subscribeArray,channelId]);
+
   return (
     <div className='w-[900px]'>
     <div>
@@ -36,14 +32,20 @@ const WatchVideoDescription = ({videoInfo}) => {
     <div className='my-2 flex text-bold'>
       <img alt='img' src={thumbnails?.default?.url} className='rounded-full w-10 h-10'/>
       <h1 className='ml-5'>{channelTitle}</h1>
-      <button className='ml-32 w-32 h-10 bg-red-600 text-white px-5 py-1 rounded-full shadow-md ease-in duration-300 hover:bg-red-700 '>
-      Subscribe
+      <button 
+        className='ml-32 w-32 h-10 bg-red-600 text-white px-5 py-1 rounded-full shadow-md ease-in duration-300 hover:bg-red-700 '
+        onClick={()=>{ 
+          subscribeHandle();
+          }}
+      >
+        {isChannelSubscribe}
       </button>
-      <button className='rounded-full pb-2 px-6 text-2xl ml-96 bg-gray-100 hover:bg-gray-200 '
+      <button 
+        className='rounded-full pb-2 px-6 text-2xl ml-96 bg-gray-200 hover:bg-gray-300 '
         onClick={()=>setShowMore(!showMore)}
       >...</button>
     </div>
-      {showMore && <ShowMoreDetails title={title} description={description} viewCount={viewCount} tags={tags} publishedAt={publishedAt} />}
+      {showMore && <ShowMoreDetailsOfVideo title={title} description={description} viewCount={viewCount} tags={tags} publishedAt={publishedAt} />}
     </div>
   )
 }

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const Profile = () => {
   return (
-    <div className='w-1/2 bg-slate-200 h-[35rem] m-auto '>
+    <div className='w-1/2 bg-red-200 h-full m-auto '>
       <h1 className='text-bold text-center mt-1'>Anamika Saini</h1>
     <div>
     <div className='flex justify-between mt-4 mx-2'>

@@ -17,6 +17,7 @@ const WatchPage = () => {
     useEffect( ()=>{
         const fetchVideoById = async()=>{
           const video = await getVideoById(videoId);
+          console.log("Video- ",video);
           setVideoDetails(video);
         }
         fetchVideoById();
@@ -38,12 +39,12 @@ const WatchPage = () => {
         </div>
           <LiveMessage/>
       </div>
-      <div><WatchVideoDescription videoInfo={videoDetails}/></div>
       <div className='flex'>
-        <CommentContainer/>
-        <div>
+          <WatchVideoDescription videoInfo={videoDetails}/>
           <SuggestedVideos videoId={searchParams.get("v")}/>
-        </div>
+      </div>
+      <div>
+        <CommentContainer/>
       </div>
     </div>
   )
