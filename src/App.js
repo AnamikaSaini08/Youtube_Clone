@@ -53,7 +53,7 @@ const appRouter = createBrowserRouter([
 const App = ()=>(
 
     <Provider store={store}>
-        <div className='overflow-visible'>
+        <div>
             <RouterProvider router={appRouter}/>
         </div>
     </Provider>

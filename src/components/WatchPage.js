@@ -25,7 +25,7 @@ const WatchPage = () => {
     },[videoId]);
 
   return videoDetails && (
-    <div className='px-5 w-full'>
+    <div className='px-5'>
       <div className='py-5 flex'>
         <div>
           <iframe width="900" 
@@ -37,10 +37,14 @@ const WatchPage = () => {
           allowFullScreen>
           </iframe>
         </div>
-          <LiveMessage/>
+        <div> <LiveMessage/></div>
+         
       </div>
       <div className='flex'>
-          <WatchVideoDescription videoInfo={videoDetails}/>
+          <div>
+            <WatchVideoDescription videoInfo={videoDetails}/>
+            <CommentContainer/>
+          </div>
           <SuggestedVideos videoId={searchParams.get("v")}/>
       </div>
       <div>

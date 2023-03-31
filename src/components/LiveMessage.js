@@ -24,7 +24,8 @@ const LiveMessage = () => {
     };
   }, []);
   return (
-    <div className="w-full border border-black ml-3">
+    <div className="w-full border border-red-200 ml-4">
+      <div className="text-center mb-1 bg-red-500 text-white text-lg">Live Chat</div>
       <div className="flex flex-col-reverse bg-slate-100 rounded-lg shadow-sm h-[355px] w-full p-2 overflow-y-scroll">
         {chatMessages.map((chat, ind) => {
           return (
@@ -44,10 +45,10 @@ const LiveMessage = () => {
         <input
           value={liveMessage}
           onChange={(e) => setLiveMessage(e.target.value)}
-          className="w-72 p-1 my-1 border border-green-300"
+          className="w-72 p-1 my-1 border border-red-200"
           type="text"
         />
-        <button className="bg-green-200 rounded-lg py-1 px-2 mx-2 my-1">
+        <button className="bg-red-500 text-white rounded-lg py-1 px-2 mx-2 my-1">
           Send
         </button>
       </form>
