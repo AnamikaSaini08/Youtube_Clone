@@ -28,7 +28,8 @@ const SuggestedVideos = ({videoId}) => {
         {suggestionVideos.map( (suggestion)=>{
             return <Link to={"/watch?v="+suggestion?.id?.videoId} 
                     key={suggestion?.id?.videoId}
-                    onClick={()=>addingToHistory(suggestion)}>
+                    onClick={()=>{addingToHistory(suggestion);
+                    }}>
                 <SuggestedVideoCard suggestion={suggestion}/>
             </Link>
             

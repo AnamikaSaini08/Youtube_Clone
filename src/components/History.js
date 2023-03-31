@@ -8,8 +8,9 @@ const History = () => {
   return histories && (
       <div className='flex flex-wrap'>
         {histories.map( (video)=>{
-          return <Link key={video?.id}
-            to={"/watch?v="+video?.id}>
+          const id = video?.id?.videoId || video?.id ;
+          return <Link key={id}
+            to={"/watch?v="+id}>
           <VideoCard videoInfo={video}/></Link>
         })}
     </div>
