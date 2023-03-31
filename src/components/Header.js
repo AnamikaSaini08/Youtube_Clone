@@ -11,6 +11,16 @@ const Header=()=>{
     const [suggestions , setSuggestions] = useState([]);
     const [showSuggestions , setShowSuggestions] = useState(false);
     const [hoverOnSuggestion , setHoverOnSuggestion] = useState(false);
+    const [isFixed, setIsFixed] = useState(false);
+    useEffect(() => {
+        function handleScroll() {
+            setIsFixed(window.scrollY > 10);
+        }
+        window.addEventListener("scroll", handleScroll); 
+        return () => {
+        window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
     const dispatch = useDispatch();
     const toggleMenuHandler = ()=>{
         dispatch(toggleMenu());
@@ -39,7 +49,7 @@ const Header=()=>{
     }
     
     return(
-        <div className='flex p-5 m-2 shadow-lg justify-between'>
+        <div className={`flex p-5 mb-2 shadow-lg justify-between ${isFixed ? 'fixed top-0 left-0 right-0 bg-white z-10' : ''}`}>
             <div className="flex">
                 <img className="h-8 cursor-pointer" 
                     alt='menu' 
