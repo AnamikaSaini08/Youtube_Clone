@@ -1,4 +1,4 @@
-export const GOOGLE_API_KEY = "AIzaSyDFhl8N4lxcgFmYtRRv24zTDjsCSd6LMk4";
+export const GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
 export const OFFSET_LIVE_CHAT = 30;
 const CORSANYWHARE_URL = "https://corsanywhere.herokuapp.com/";
 
