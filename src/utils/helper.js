@@ -43,7 +43,6 @@ export function generateRandomMessage(length) {
 export const getSearchVideos = async(text)=>{
   const data = await fetch(YOUTUBE_SEARCH_API +text+"&key="+GOOGLE_API_KEY);
   const json = await data.json();
-  console.log(json?.items);
   return json?.items;
 }
 

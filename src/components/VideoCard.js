@@ -1,12 +1,10 @@
 import React from 'react'
 
 const VideoCard = ({videoInfo}) => {
-  console.log(videoInfo);
   const { snippet, statistics } = videoInfo || {};
   const { channelTitle, title, thumbnails, publishedAt } = snippet || {};
   const { viewCount } = statistics || {};
   const dateOnly = publishedAt?.slice(0, 10);
-  console.log(channelTitle,title,thumbnails,publishedAt)
   return videoInfo && (
     <div className='drop-shadow-lg w-80 h-80 bg-slate-50 p-5 m-5 ml-10'>
      <div>
