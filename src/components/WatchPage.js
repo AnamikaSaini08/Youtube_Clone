@@ -47,9 +47,6 @@ const WatchPage = () => {
           </div>
           <SuggestedVideos videoId={searchParams.get("v")}/>
       </div>
-      <div>
-        <CommentContainer/>
-      </div>
     </div>
   )
 }

@@ -8,7 +8,7 @@ const History = () => {
   return histories && (
     <div>
     <div className='my-2'>
-      <h1 className='px-2 py-2 bg-red-600 ml-96 text-white text-bold shadow-sm rounded-md'>Your History</h1>
+      <h1 className='w-28 px-2 py-2 bg-red-600 ml-96 text-white text-bold shadow-sm rounded-md'>Your History</h1>
     </div>
       <div className='flex flex-wrap'>
           {histories.map( (video)=>{

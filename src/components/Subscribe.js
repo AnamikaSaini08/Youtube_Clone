@@ -8,7 +8,7 @@ const Subscribe = () => {
   return (
     <div>
     <div className='my-2'>
-        <span className='px-2 py-2 bg-red-600 ml-96 text-white text-bold shadow-sm rounded-md'>
+        <span className='w-32 px-2 py-2 bg-red-600 ml-96 text-white text-bold shadow-sm rounded-md'>
             Your Subscribe Channel
         </span>
     </div>

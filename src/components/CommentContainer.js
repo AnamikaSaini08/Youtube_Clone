@@ -8,35 +8,35 @@ const commentData = [
         desc: "Lorem ipsum is the best thing the world",
         reply: [
             {
-                name: "Anamika Saini",
-                desc: "Lorem ipsum is the best thing the world",
+                name: "priyanka",
+                desc: "yes this is right",
                 reply: [
                     {
                         name: "Anamika Saini",
-                        desc: "Lorem ipsum is the best thing the world",
+                        desc: "ya",
                         reply: [],
                     }
                 ],
             },
             {
-                name: "Anamika Saini",
-                desc: "Lorem ipsum is the best thing the world",
+                name: "Ankit Yadav",
+                desc: "This is one of the best playlist",
                 reply: [  {
-                    name: "Anamika Saini",
-                    desc: "Lorem ipsum is the best thing the world",
+                    name: "Ashu",
+                    desc: "i will agree on this, what's other guys",
                     reply: [ {
                         name: "Anamika Saini",
-                        desc: "Lorem ipsum is the best thing the world",
+                        desc: "Me also...hahahahha",
                         reply: [ {
-                            name: "Anamika Saini",
-                            desc: "Lorem ipsum is the best thing the world",
+                            name: "Rohit",
+                            desc: "Education is the key of success",
                             reply: [],
                         }],
                     }],
                 },
                 {
-                    name: "Anamika Saini",
-                    desc: "Lorem ipsum is the best thing the world",
+                    name: "Ashu",
+                    desc: "Entrepreneurship generation",
                     reply: [],
                 }
             ],
@@ -45,7 +45,7 @@ const commentData = [
     },
         {
             id: 2,
-            name: "Anamika Saini",
+            name: "Ashi Singh",
             desc: "Lorem ipsum is the best thing the world",
             reply: [
     
@@ -54,8 +54,8 @@ const commentData = [
        
         {
             id: 3,
-            name: "Anamika Saini",
-            desc: "Lorem ipsum is the best thing the world",
+            name: "Rohitin",
+            desc: "key chamges.......yes jncsjd dcks dsci dsnck",
             reply: [
     
             ],
