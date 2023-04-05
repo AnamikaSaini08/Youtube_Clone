@@ -1,6 +1,6 @@
 export const GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
 export const OFFSET_LIVE_CHAT = 30;
-const CORSANYWHARE_URL = "https://corsanywhere.herokuapp.com/";
+const CORSANYWHARE_URL = "https://api.allorigins.win/get?url=";
 
 export const YOUTUBE_API_KEY = "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=30&regionCode=IN&key="+GOOGLE_API_KEY;
 

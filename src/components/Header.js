@@ -82,7 +82,7 @@ const Header=()=>{
                 </div>
                 {showSuggestions && (<div className='z-10 bg-white fixed w-[24rem] px-5 py-2 shadow-xl rounded-lg border border-gray-100'>
                     <ul>
-                        {suggestions.map( (suggestion)=>{
+                        {suggestions?.map( (suggestion)=>{
                             return <Link to={`/results?search_query='${suggestion}`}>
                                     <li className='flex hover:bg-gray-100 p-1 m-2'
                                     onClick={()=>{
