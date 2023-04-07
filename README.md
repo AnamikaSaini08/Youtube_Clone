@@ -29,3 +29,23 @@ Redux
 Tailwind CSS
 Parser
 YouTube Data API etc.
+
+Home Pgae
+![image](https://user-images.githubusercontent.com/86796513/230546175-d26571db-00f8-4f24-bf7e-527f65897364.png)
+
+Watch Pgae
+![image](https://user-images.githubusercontent.com/86796513/230546213-e3831ccc-ec3e-4aa7-a44e-4c1842d5b0e3.png)
+
+Description and suggestion on watch page
+![image](https://user-images.githubusercontent.com/86796513/230546283-a8d71df1-dd44-48a5-8475-0285adeafc99.png)
+
+History
+![image](https://user-images.githubusercontent.com/86796513/230546324-d761557a-ca51-4515-ba22-de67620d08d9.png)
+
+Subscribe
+![image](https://user-images.githubusercontent.com/86796513/230546406-b86e5bcd-7a49-4457-862d-cd3bb7cdb66c.png)
+
+
+
+
+
