@@ -45,6 +45,8 @@ History
 Subscribe
 ![image](https://user-images.githubusercontent.com/86796513/230546406-b86e5bcd-7a49-4457-862d-cd3bb7cdb66c.png)
 
+Search Page
+![image](https://user-images.githubusercontent.com/86796513/230546567-98238a4a-4750-4099-a37d-42d24d58520a.png)
 
 
 
